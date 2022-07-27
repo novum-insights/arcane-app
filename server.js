@@ -1,16 +1,13 @@
 import { handler } from './build/handler.js';
 import express from 'express';
-
+import herokuSSLRedirect from 'heroku-ssl-redirect'
+const sslRedirect = herokuSSLRedirect.default
 const app = express();
-
-// add a route that lives separately from the SvelteKit app
+app.use(sslRedirect());
 app.get('/healthcheck', (req, res) => {
     res.end('ok');
 });
-
-// let SvelteKit handle everything else, including serving prerendered pages and static assets
 app.use(handler);
-
-app.listen(3000, () => {
-    console.log('listening on port 3000');
+app.listen(process.env.PORT || 3000, '0.0.0.0', () => {
+    console.log(`listening on port ${process.env.PORT || 3000}`);
 });
