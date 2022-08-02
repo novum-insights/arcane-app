@@ -1,3 +1,4 @@
+import { resolveBNS } from "$lib/server/_gql";
 import { validateAddress } from "$lib/server/_stacks";
 import { getAssets } from "$lib/utils/helpers";
 import type { RequestHandler } from "@sveltejs/kit";
@@ -24,11 +25,23 @@ import type { RequestHandler } from "@sveltejs/kit";
 
 export const GET: RequestHandler = async ({ params }) => {
     const { address } = params
-    const data = await getAssets(address)
-    return {
-        body: {
-            data,
-            address
+    if (!validateAddress(address)) {
+        const _address = await resolveBNS(address);
+        const data = await getAssets(_address)
+        return {
+            body: {
+                data,
+                address: _address
+            }
+        }
+    }
+    else {
+        const data = await getAssets(address)
+        return {
+            body: {
+                data,
+                address
+            }
         }
     }
 }

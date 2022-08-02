@@ -108,3 +108,17 @@ export const getFloorMultiple = async (contract_ids: string[]) => {
   return floor_prices
 
 }
+
+export const resolveBNS = async (name: string) => {
+  const query = gql`
+    {
+      getNameDetails(name:"${name}"){
+        address
+      }
+    }
+  `
+  const data = await request('https://gql.stxnft.com/', query).then((data) => (data))
+  const { getNameDetails } = data
+  const { address } = getNameDetails
+  return address
+}

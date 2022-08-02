@@ -20,7 +20,6 @@
 	import { page } from '$app/stores';
 	import { stx_price } from '$lib/utils/stores';
 	let address = $page.params.address;
-
 	export let price: string;
 	$stx_price = price;
 </script>
