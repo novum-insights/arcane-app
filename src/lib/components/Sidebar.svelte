@@ -1,9 +1,10 @@
 <script lang="ts">
 	import { base } from '$app/paths';
-
+	import { page } from '$app/stores';
 	export let price: string = '';
 
 	const links = [
+		['', `${base}`],
 		['About', `${base}/about`],
 		['Explore', `${base}/explore`]
 	];
@@ -14,8 +15,8 @@
 		<h2 class="text-3xl font-semibold text-center text-gray-800 dark:text-white uppercase">
 			Arcane
 		</h2>
+		<p class="text-xs text-center">Stacks portfolio tracker</p>
 	</a>
-	<p class="text-xs text-center">Stacks portfolio tracker</p>
 	<div class="flex flex-col items-center mt-6 -mx-2">
 		<h4 class="mx-2 mt-2 font-medium text-gray-800 dark:text-gray-200">
 			1 STX ~(${Number(price).toFixed(2)})
@@ -25,7 +26,11 @@
 	<div class="flex flex-col justify-between flex-1 mt-6">
 		<nav>
 			{#each links as [name, link]}
-				<a class="flex items-center px-4 py-2 text-white" href={link}>
+				<a
+					class="flex items-center px-4 py-2 text-white"
+					href={link}
+					class:bg-sky-900={link === $page.url.pathname}
+				>
 					<span class="mx-4 font-medium">{name}</span>
 				</a>
 			{/each}

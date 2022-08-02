@@ -1,1 +1,1 @@
-trending NFTs
+this page is under construction
