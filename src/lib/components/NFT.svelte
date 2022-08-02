@@ -6,6 +6,7 @@
 	export let floor: number;
 	export let debug = false;
 	let hasError = false;
+	console.log(meta_data);
 </script>
 
 {#if debug}
@@ -18,12 +19,11 @@
 	<NftCard src={meta_data.fixed_image_url} bind:hasError>
 		<div class="flex items-center justify-between">
 			<div class="grid gap-4">
-				<p class="uppercase">
-					{data.asset_id}
-				</p>
-				<p>
-					{data.token_id}
-				</p>
+				<a href="https://gamma.io/collections/{data.asset_id}/{data.token_id}" target="_blank" class="text-sky-300">
+					<p class="uppercase">
+						{data.asset_id} - # {data.token_id}
+					</p>
+				</a>
 				<p class="text-lg">
 					{Math.round(floor * 100) / 100} STX
 				</p>
@@ -35,12 +35,11 @@
 	<NftCard src={meta_data.fixed_asset_url} bind:hasError>
 		<div class="flex items-center justify-between">
 			<div class="grid gap-4">
-				<p class="uppercase">
-					{data.asset_id}
-				</p>
-				<p>
-					{data.token_id}
-				</p>
+				<a href="https://gamma.io/collections/{data.asset_id}/{data.token_id}" target="_blank" class="text-sky-300">
+					<p class="uppercase">
+						{data.asset_id} - # {data.token_id}
+					</p>
+				</a>
 				<p class="text-lg">
 					{Math.round(floor * 100) / 100} STX
 				</p>
@@ -56,12 +55,11 @@
 		</video>
 		<div class="flex items-center justify-between">
 			<div class="grid gap-4">
-				<p class="uppercase">
-					{data.asset_id}
-				</p>
-				<p>
-					{data.token_id}
-				</p>
+				<a href="https://gamma.io/collections/{data.asset_id}/{data.token_id}" target="_blank" class="text-sky-300">
+					<p class="uppercase">
+						{data.asset_id} - # {data.token_id}
+					</p>
+				</a>
 				<p class="text-lg">
 					{Math.round(floor * 100) / 100} STX
 				</p>
