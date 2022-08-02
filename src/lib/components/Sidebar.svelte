@@ -29,7 +29,7 @@
 					<span class="mx-4 font-medium">{name}</span>
 				</a>
 			{/each}
-			<button class="p-2 ml-6 bg-blue-700 text-white rounded-lg"> Connect Hiro wallet </button>
+			<!-- <button class="p-2 ml-6 bg-blue-700 text-white rounded-lg"> Connect Hiro wallet </button> -->
 		</nav>
 	</div>
 </div>
