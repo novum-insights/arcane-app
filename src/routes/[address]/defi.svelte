@@ -14,21 +14,38 @@
 
 	$: total_stx = 0;
 	$: total_tokens = fungible_tokens.length;
+	$: total_folio = 0;
 	const getStxData = async () => {
 		total_stx = await getStxBalance(address);
 	};
 
 	const calculateFolio = async () => {
-		const tokenPrices = fungible_tokens.map(
-			async (e: any) => await getAlexLabPirceByToken(e.symbol)
-		);
-		const priceData = await Promise.all(tokenPrices);
-		console.log({ fungible_tokens });
-		const qualifyingTokens = fungible_tokens
-			.map((e: any) => tokenMap[e.symbol])
-			.filter((item: string) => item);
+		// const tokenPrices = fungible_tokens.map(
+		// 	async (e: any) => await getAlexLabPirceByToken(e.symbol)
+		// );
+		// const priceData = await Promise.all(tokenPrices);
+		// console.log({ fungible_tokens });
+		// const qualifyingTokens = fungible_tokens
+		// 	.map((e: any) => tokenMap[e.symbol])
+		// 	.filter((item: string) => item);
 
-		console.log(qualifyingTokens, priceData);
+		// console.log(qualifyingTokens, priceData);
+
+		const priceData = fungible_tokens.map(async (e: any) => {
+			const { avg_price_usd, token }: any = await getAlexLabPirceByToken(e.symbol);
+			const balance = e.balance * 10 ** -e.decimals;
+			if (token) {
+				const folio = balance * avg_price_usd;
+				return {
+					token,
+					balance,
+					folio
+				};
+			}
+		});
+
+		const folioData = (await Promise.all(priceData)).filter((e) => e);
+		total_folio = folioData.reduce((acc, e) => acc + e.folio, 0);
 	};
 
 	$: if (address) {
@@ -42,7 +59,7 @@
 		},
 		{
 			title: 'Portfolio (USD)',
-			stat: 0
+			stat: total_folio.toFixed(2)
 		},
 		{
 			title: 'Total STX',
