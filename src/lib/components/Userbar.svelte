@@ -5,13 +5,11 @@
 	import { copy } from 'svelte-copy';
 
 	export let address: string;
+	export let stats: any;
 	const links = [
 		['NFT', `${base}/${address}/nft`],
 		['DeFi', `${base}/${address}/defi`]
 	];
-	export let total_stx: number;
-	export let portfolio: number;
-	export let total_nfts: number;
 </script>
 
 <div class="py-4">
@@ -20,7 +18,7 @@
 			{#each links as [name, link]}
 				<li
 					class="bg-gray-800 p-2 rounded-lg"
-					class:bg-gray-300={$page.url.pathname.includes(link)}
+					class:bg-sky-700={$page.url.pathname.includes(link)}
 				>
 					<a href={link}>{name}</a>
 				</li>
@@ -28,7 +26,9 @@
 		</ul>
 		<div class="flex items-center">
 			<!-- <p>{address}</p> -->
-			<a href="https://explorer.stacks.co/address/{address}?chain=mainnet" target="_blank">{address}</a>
+			<a href="https://explorer.stacks.co/address/{address}?chain=mainnet" target="_blank"
+				>{address}</a
+			>
 			<button use:copy={`${address}`} on:svelte-copy={(event) => alert(event.detail)}>
 				<svg
 					xmlns="http://www.w3.org/2000/svg"
@@ -48,5 +48,5 @@
 		</div>
 	</div>
 
-	<Stats {portfolio} {total_nfts} {total_stx} />
+	<Stats {stats} />
 </div>

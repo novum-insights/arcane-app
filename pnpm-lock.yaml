@@ -41,6 +41,7 @@ dependencies:
   heroku-ssl-redirect: 0.1.1
   micro-stacks: 0.6.1
   mime: 3.0.0
+  svelte-copy: 1.2.4
   svelte-simple-datatables: 0.2.3
 
 devDependencies:
@@ -59,7 +60,6 @@ devDependencies:
   prettier-plugin-svelte: 2.7.0_o3ioganyptcsrh6x4hnxvjkpqi
   svelte: 3.49.0
   svelte-check: 2.8.0_blrkfmplrezk6jx3arz7bdc3pa
-  svelte-copy: 1.2.4
   svelte-preprocess: 4.10.7_6avtyouqcdws46kxwsvk4vhxre
   tailwindcss: 3.1.6
   tslib: 2.4.0
@@ -2452,7 +2452,7 @@ packages:
 
   /svelte-copy/1.2.4:
     resolution: {integrity: sha512-fzayMfIK2zD4RzFXsqDg/XfkbRY5p+llCZwHqayxnxfUaE2bf5/DaLi7+pUbtEZNDPb0dzUUweu9jQJpsxRFAw==}
-    dev: true
+    dev: false
 
   /svelte-hmr/0.14.12_svelte@3.49.0:
     resolution: {integrity: sha512-4QSW/VvXuqVcFZ+RhxiR8/newmwOCTlbYIezvkeN6302YFRE8cXy0naamHcjz8Y9Ce3ITTZtrHrIL0AGfyo61w==}

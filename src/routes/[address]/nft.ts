@@ -27,7 +27,8 @@ export const GET: RequestHandler = async ({ params }) => {
     const data = await getAssets(address)
     return {
         body: {
-            data
+            data,
+            address
         }
     }
 }
