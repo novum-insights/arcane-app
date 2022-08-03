@@ -7,7 +7,6 @@
 	export let address: string;
 	export let stats: any;
 
-	console.log("Userbar component: address:", address);
 
 	const links = [
 		['NFT', `${base}/${address}/nft`],

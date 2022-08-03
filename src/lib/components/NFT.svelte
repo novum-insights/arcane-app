@@ -6,7 +6,6 @@
 	export let floor: number;
 	export let debug = false;
 	let hasError = false;
-	console.log(meta_data);
 </script>
 
 {#if debug}
