@@ -1,13 +1,14 @@
 <script lang="ts">
 	import { base } from '$app/paths';
-	import { ipfsUriToHttp } from '$lib/utils/helpers';
+	import { getAPI, ipfsUriToHttp } from '$lib/utils/helpers';
+	import { portfolio_stx } from '$lib/utils/stores';
 	import { onMount } from 'svelte';
 	import Nft from './NFT.svelte';
 	import Stats from './Stats.svelte';
 	export let data: any;
 
 	const floorPrice = async (collection_contract_id: string) => {
-		return await fetch(`${base}/api/getfloor`, {
+		const response = await fetch(`${base}/api/getfloor`, {
 			method: 'POST',
 			headers: {
 				'Content-Type': 'application/json'
@@ -15,7 +16,10 @@
 			body: JSON.stringify({
 				collection_contract_id
 			})
-		}).then((e) => e.json());
+		});
+		const data = await response.json();
+		$portfolio_stx += data.floor;
+		return data;
 	};
 	$: prev = 0;
 	$: next = 16;

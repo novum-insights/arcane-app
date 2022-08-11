@@ -6,9 +6,9 @@ export const ipfsUriToHttp = (uri: string) => {
         , "https://images.gamma.io/ipfs/")
 }
 
-export const getSum = (arr: number[]) => arr.reduce((a, b) => a + b, 0);
+export const getSum = (arr: number[]) => arr.reduce((a, b) => a + b);
 
-const getAPI = async (url: string): Promise<any> => {
+export const getAPI = async (url: string): Promise<any> => {
     return await fetch(url)
         .then(res => res.json())
         .catch(err => console.log(err))

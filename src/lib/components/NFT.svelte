@@ -8,7 +8,6 @@
 	export let floor: number;
 	export let debug = false;
 	let hasError = false;
-	console.log(data);
 	$: link = async (contract_id: string) => await getCollectionMetadata(contract_id);
 </script>
 
