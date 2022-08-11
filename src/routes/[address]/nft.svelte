@@ -36,7 +36,6 @@
 	};
 
 	$: if (address) {
-		console.log(address, "changed")
 		getStxData();
 		getPortfolioFloor();
 	}
