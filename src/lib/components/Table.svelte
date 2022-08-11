@@ -1,7 +1,6 @@
 <script lang="ts">
 	import { base } from '$app/paths';
 	import { getAPI, ipfsUriToHttp } from '$lib/utils/helpers';
-	import { portfolio_stx } from '$lib/utils/stores';
 	import { onMount } from 'svelte';
 	import Nft from './NFT.svelte';
 	import Stats from './Stats.svelte';
@@ -18,7 +17,6 @@
 			})
 		});
 		const data = await response.json();
-		$portfolio_stx += data.floor;
 		return data;
 	};
 	$: prev = 0;

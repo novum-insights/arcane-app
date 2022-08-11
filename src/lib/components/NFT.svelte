@@ -28,7 +28,7 @@
 						</p>
 					</a>
 					<p class="text-lg">
-						{Math.round(floor * 100) / 100} STX
+						floor: {Math.round(floor * 100) / 100} STX
 					</p>
 				{/await}
 			</div>
@@ -46,7 +46,7 @@
 						</p>
 					</a>
 					<p class="text-lg">
-						{Math.round(floor * 100) / 100} STX
+						floor: {Math.round(floor * 100) / 100} STX
 					</p>
 				{/await}
 			</div>
@@ -68,7 +68,7 @@
 						</p>
 					</a>
 					<p class="text-lg">
-						{Math.round(floor * 100) / 100} STX
+						floor: {Math.round(floor * 100) / 100} STX
 					</p>
 				{/await}
 			</div>

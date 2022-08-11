@@ -3,7 +3,7 @@
 
 	import Table from '$lib/components/Table.svelte';
 	import { getAssets, getStxBalance } from '$lib/utils/helpers';
-	import { stx_price, stats_data, portfolio_stx } from '$lib/utils/stores';
+	import { stx_price, stats_data } from '$lib/utils/stores';
 
 	export let data: any;
 	export let address: string;
@@ -19,20 +19,20 @@
 		const contractArray =
 			data && data.map(({ collection_contract_id }: any) => collection_contract_id);
 		total_nfts = contractArray.length;
-		// const url = `${base}/api/getfloors`;
-		// try {
-		// 	const response = await fetch(url, {
-		// 		method: 'POST',
-		// 		headers: {
-		// 			'Content-Type': 'application/json'
-		// 		},
-		// 		body: JSON.stringify({
-		// 			collection_contract_id: contractArray
-		// 		})
-		// 	});
-		// 	const _data = await response.json();
-		// 	portfolio = _data.portfolio;
-		// } catch (error) {}
+		const url = `${base}/api/getfloors`;
+		try {
+			const response = await fetch(url, {
+				method: 'POST',
+				headers: {
+					'Content-Type': 'application/json'
+				},
+				body: JSON.stringify({
+					collection_contract_id: contractArray
+				})
+			});
+			const _data = await response.json();
+			portfolio = _data.portfolio;
+		} catch (error) {}
 	};
 
 	$: if (address) {
@@ -47,8 +47,8 @@
 		},
 		{
 			title: 'Portfolio (STX)',
-			stat: $portfolio_stx ? $portfolio_stx.toFixed(2) : 0,
-			hint: `${(Number($stx_price) * $portfolio_stx).toFixed(2)} USD`
+			stat: portfolio ? portfolio.toFixed(2) : 0,
+			hint: `${(Number($stx_price) * portfolio).toFixed(2)} USD`
 		},
 		{
 			title: 'Total STX',

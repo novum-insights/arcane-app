@@ -21,7 +21,7 @@
 	$: stats = $stats_data;
 </script>
 
-<main class="px-16 h-screen">
+<main class="px-16 h-100">
 	{#if stats}
 		<Userbar {address} {stats} />
 	{/if}
