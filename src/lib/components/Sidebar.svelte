@@ -1,6 +1,8 @@
 <script lang="ts">
 	import { base } from '$app/paths';
 	import { page } from '$app/stores';
+	import { getAccount } from '@micro-stacks/svelte';
+	import WalletConnect from './WalletConnect.svelte';
 	export let price: string = '';
 
 	const links = [
@@ -8,6 +10,7 @@
 		['About', `${base}/about`],
 		['Explore', `${base}/explore`]
 	];
+	const account = getAccount();
 </script>
 
 <div class="flex flex-col w-64 h-100 py-8 bg-white border-r dark:bg-gray-800 dark:border-gray-600">
@@ -34,7 +37,17 @@
 					<span class="mx-4 font-medium">{name}</span>
 				</a>
 			{/each}
+			{#if $account.stxAddress}
+				<a
+					class="flex items-center px-4 py-2 text-white"
+					href={`${base}/${$account.stxAddress}/nft`}
+					class:bg-sky-900={$page.url.pathname.includes($account.stxAddress)}
+				>
+					<span class="mx-4 font-medium">Profile</span>
+				</a>
+			{/if}
 			<!-- <button class="p-2 ml-6 bg-blue-700 text-white rounded-lg"> Connect Hiro wallet </button> -->
+			<WalletConnect />
 		</nav>
 	</div>
 </div>
