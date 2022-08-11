@@ -12,6 +12,7 @@ export const POST: RequestHandler = async ({ request }) => {
 }
 
 const arrayMap = async (array: string[]) => {
+    if (array.length === 0) return [0]
     const unique = [...new Set(array)];
     const map = new Map();
     unique.forEach(item => map.set(item, array.filter(i => i === item).length));
