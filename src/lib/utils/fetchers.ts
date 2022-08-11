@@ -1,5 +1,4 @@
-const url = import.meta.env.PROD ? 'https://micro-stacks-sveltekit-example.vercel.app' : `http://${new URL(import.meta.url).host}`;
-
+const url = import.meta.env.PROD ? 'https://arcane.novuminsights.com/' : `http://${new URL(import.meta.url).host}`;
 
 export const onPersistState = async (dehydratedState: string) => {
     const formData = new FormData();

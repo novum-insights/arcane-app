@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { getAccount, getAuth } from '@micro-stacks/svelte';
+	import { getAuth } from '@micro-stacks/svelte';
 
 	const auth = getAuth();
 
@@ -17,10 +17,6 @@
 			$auth.openAuthRequest();
 		}
 	}
-
-	const account = getAccount();
-
-	$: sessionStatus = !$account.stxAddress ? 'No active session' : $account.stxAddress;
 </script>
 
 <button on:click={onClick} class="p-2 mt-2 ml-6 bg-blue-700 text-white rounded-lg">
