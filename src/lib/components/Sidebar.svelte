@@ -13,15 +13,15 @@
 	const account = getAccount();
 </script>
 
-<div class="flex flex-col w-64 h-100 py-8 bg-white border-r dark:bg-gray-800 dark:border-gray-600">
+<div class="flex flex-col w-64 h-100 py-8 border-r bg-gray-800 border-gray-600">
 	<a href="{base}/.">
-		<h2 class="text-3xl font-semibold text-center text-gray-800 dark:text-white uppercase">
+		<h2 class="text-3xl font-semibold text-center text-white uppercase">
 			Arcane
 		</h2>
 		<p class="text-xs text-center">Stacks portfolio tracker</p>
 	</a>
 	<div class="flex flex-col items-center mt-6 -mx-2">
-		<h4 class="mx-2 mt-2 font-medium text-gray-800 dark:text-gray-200">
+		<h4 class="mx-2 mt-2 font-medium">
 			1 STX ~(${Number(price).toFixed(2)})
 		</h4>
 	</div>
