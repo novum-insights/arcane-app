@@ -18,8 +18,8 @@
 {/if}
 
 {#if meta_data.fixed_image_url && !hasError}
-	<NftCard src={meta_data.fixed_image_url} bind:hasError>
-		{#await link(data.collection_contract_id) then sth}
+	{#await link(data.collection_contract_id) then sth}
+		<NftCard src={meta_data.fixed_image_url} bind:hasError>
 			<div class="flex items-center justify-between">
 				<div class="grid gap-4">
 					<a
@@ -36,12 +36,12 @@
 					</p>
 				</div>
 			</div>
-		{/await}
-	</NftCard>
+		</NftCard>
+	{/await}
 {/if}
 {#if meta_data.fixed_asset_url && !hasError}
-	<NftCard src={meta_data.fixed_asset_url} bind:hasError>
-		{#await link(data.collection_contract_id) then sth}
+	{#await link(data.collection_contract_id) then sth}
+		<NftCard src={meta_data.fixed_asset_url} bind:hasError>
 			<div class="flex items-center justify-between">
 				<div class="grid gap-4">
 					<a href={sth.slug} target="_blank" class="text-sky-300">
@@ -54,16 +54,16 @@
 					</p>
 				</div>
 			</div>
-		{/await}
-	</NftCard>
+		</NftCard>
+	{/await}
 {/if}
 
 {#if hasError}
 	<div class="card">
-		<video controls muted paused class="aspect-square">
-			<source src={meta_data.fixed_asset_url} type="video/mp4" />
-		</video>
 		{#await link(data.collection_contract_id) then sth}
+			<video controls muted paused class="aspect-square">
+				<source src={meta_data.fixed_asset_url} type="video/mp4" />
+			</video>
 			<div class="flex items-center justify-between">
 				<div class="grid gap-4">
 					<a href={sth.slug} target="_blank" class="text-sky-300">
