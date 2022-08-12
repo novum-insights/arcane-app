@@ -95,7 +95,8 @@ export const getFloorMultiple = async (contract_ids: string[]) => {
     marketplace_list_events_active_floors(
       where: { collection_contract_id: { _in: $collection_contract_ids } }
     ) {
-      price_amount
+      price_amount,
+      collection_contract_id
     }
   }
   `
@@ -104,8 +105,8 @@ export const getFloorMultiple = async (contract_ids: string[]) => {
   }
   const data = await request('https://gql.stxnft.com/', query, variables).then((data) => (data))
   const { marketplace_list_events_active_floors } = data
-  const floor_prices = marketplace_list_events_active_floors.map(({ price_amount }: any) => price_amount * 10e-7)
-  return floor_prices
+  // const floor_prices = marketplace_list_events_active_floors.map(({ price_amount }: any) => price_amount * 10e-7)
+  return marketplace_list_events_active_floors
 
 }
 
