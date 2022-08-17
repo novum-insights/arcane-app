@@ -2,7 +2,6 @@
 	import { STXtoNumber } from '$lib/utils/helpers';
 
 	export let featured: any;
-	console.log(featured);
 </script>
 
 <div class="grid grid-cols-8 gap-4 py-4">
