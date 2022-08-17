@@ -19,3 +19,5 @@ export const ipfsUriToHttp = (uri: string) => {
     return `${ipfsPrefix}${hash}`
 
 }
+
+export const STXtoNumber = (stx: number) => `${stx * 10e-7} STX`

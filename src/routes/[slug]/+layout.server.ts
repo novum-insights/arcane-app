@@ -12,7 +12,7 @@ export const load: Load = async ({ params }) => {
     return {
         address,
         bns,
-        total_stx,
+        total_stx: Number(total_stx).toFixed(2),
         page_slug
     }
 }
