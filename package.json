@@ -6,6 +6,7 @@
 		"build": "vite build",
 		"package": "svelte-kit package",
 		"preview": "vite preview",
+		"start": "node server.js",
 		"check": "svelte-check --tsconfig ./tsconfig.json",
 		"check:watch": "svelte-check --tsconfig ./tsconfig.json --watch",
 		"lint": "prettier --check --plugin-search-dir=. . && eslint .",
@@ -36,8 +37,10 @@
 	"type": "module",
 	"dependencies": {
 		"@micro-stacks/svelte": "^1.0.3",
+		"express": "^4.18.1",
 		"graphql": "^16.6.0",
 		"graphql-request": "^4.3.0",
+		"heroku-ssl-redirect": "^0.1.1",
 		"micro-stacks": "^1.1.2",
 		"svelte-copy": "^1.2.4",
 		"svelte-kit-cookie-session": "^3.0.6"
