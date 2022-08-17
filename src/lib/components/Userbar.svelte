@@ -1,13 +1,10 @@
 <script lang="ts">
 	import { base } from '$app/paths';
-	import Stats from './Stats.svelte';
 	import { page } from '$app/stores';
 	import { copy } from 'svelte-copy';
+	import Stats from './Stats.svelte';
 
-	export let address: string;
-	export let stats: any;
-
-
+	let address = $page.data.page_slug;
 	const links = [
 		['NFT', `${base}/${address}/nft`],
 		['DeFi', `${base}/${address}/defi`]
@@ -18,10 +15,7 @@
 	<div class="flex justify-between items-center">
 		<ul class="flex gap-4">
 			{#each links as [name, link]}
-				<li
-					class="bg-gray-800 p-2 rounded-lg"
-					class:bg-sky-700={$page.url.pathname.includes(link)}
-				>
+				<li class="bg-gray-800 p-2 rounded-lg" class:bg-sky-700={$page.url.pathname.includes(link)}>
 					<a href={link}>{name}</a>
 				</li>
 			{/each}
@@ -31,7 +25,7 @@
 			<a href="https://explorer.stacks.co/address/{address}?chain=mainnet" target="_blank"
 				>{address}</a
 			>
-			<button use:copy={`${address}`} on:svelte-copy={(event) => alert(event.detail)}>
+			<button use:copy={`${address}`}>
 				<svg
 					xmlns="http://www.w3.org/2000/svg"
 					class="h-6 w-6"
@@ -50,5 +44,5 @@
 		</div>
 	</div>
 
-	<Stats {stats} />
+	<Stats />
 </div>

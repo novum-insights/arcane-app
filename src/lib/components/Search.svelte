@@ -3,7 +3,8 @@
 
 	import { base } from '$app/paths';
 
-	export let address: string;
+	import { page } from '$app/stores';
+	let address = $page.data.page_slug;
 
 	const searchAddress = async (address: string) => {
 		address ? goto(`${base}/${address}/nft`) : goto(`/`);

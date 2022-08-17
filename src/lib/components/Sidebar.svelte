@@ -1,9 +1,9 @@
 <script lang="ts">
 	import { base } from '$app/paths';
 	import { page } from '$app/stores';
-	import { getAccount } from '@micro-stacks/svelte';
 	import WalletConnect from './WalletConnect.svelte';
-	export let price: string = '';
+	import { getAccount } from '@micro-stacks/svelte';
+	const account = getAccount();
 
 	const links = [
 		['', `${base}`],
@@ -11,7 +11,8 @@
 		['Explore', `${base}/explore`],
 		['Minting Now', `${base}/minting-now`]
 	];
-	const account = getAccount();
+
+	const price = $page.data.price;
 </script>
 
 <div class="flex flex-col w-64 h-100 py-8 border-r bg-gray-800 border-gray-600">
