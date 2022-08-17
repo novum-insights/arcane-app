@@ -4,7 +4,7 @@
 	import { base } from '$app/paths';
 
 	import { page } from '$app/stores';
-	let address = $page.data.page_slug;
+	let address = $page.data.address;
 
 	const searchAddress = async (address: string) => {
 		address ? goto(`${base}/${address}/nft`) : goto(`/`);

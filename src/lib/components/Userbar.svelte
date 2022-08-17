@@ -4,7 +4,7 @@
 	import { copy } from 'svelte-copy';
 	import Stats from './Stats.svelte';
 
-	let address = $page.data.page_slug;
+	let address = $page.data.address;
 	const links = [
 		['NFT', `${base}/${address}/nft`],
 		['DeFi', `${base}/${address}/defi`]

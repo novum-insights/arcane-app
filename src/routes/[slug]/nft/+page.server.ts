@@ -11,8 +11,7 @@ export const load: Load = async ({ parent }) => {
     const contractArray = assets && assets.map(({ collection_contract_id }: any) => collection_contract_id)
     const floor_map = contractArray.length && await arrayMap(contractArray)
     const floor_map_obj = floor_map.size && Object.fromEntries(floor_map)
-
-    const portfolio_stx = total_stx ? floor_map.size && getSum([...floor_map.values()]).toFixed(2) : 0
+    const portfolio_stx = Number(total_stx) ? floor_map.size && getSum([...floor_map.values()]).toFixed(2) : 0
     const portfolio_usd = (Number(portfolio_stx) * price).toFixed(2)
     return {
         ..._parent,
