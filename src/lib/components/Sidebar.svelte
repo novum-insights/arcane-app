@@ -8,16 +8,15 @@
 	const links = [
 		['', `${base}`],
 		['About', `${base}/about`],
-		['Explore', `${base}/explore`]
+		['Explore', `${base}/explore`],
+		['Minting Now', `${base}/minting-now`]
 	];
 	const account = getAccount();
 </script>
 
 <div class="flex flex-col w-64 h-100 py-8 border-r bg-gray-800 border-gray-600">
 	<a href="{base}/.">
-		<h2 class="text-3xl font-semibold text-center text-white uppercase">
-			Arcane
-		</h2>
+		<h2 class="text-3xl font-semibold text-center text-white uppercase">Arcane</h2>
 		<p class="text-xs text-center">Stacks portfolio tracker</p>
 	</a>
 	<div class="flex flex-col items-center mt-6 -mx-2">

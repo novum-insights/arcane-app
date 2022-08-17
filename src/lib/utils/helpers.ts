@@ -155,3 +155,5 @@ export const tokenMap: any = {
     // 'SP': null,
     // 'APower': null,
 }
+
+export const STXtoNumber = (stx: number) => `${stx * 10e-7} STX`
