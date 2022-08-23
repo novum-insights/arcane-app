@@ -4,7 +4,7 @@
 	export let data: any;
 </script>
 
-<div class="grid grid-cols-8 gap-4 py-4">
+<div class="grid grid-cols-6 gap-4 py-4">
 	{#each data.featured as { name, image, prices, slug }}
 		{#if slug}
 			<a href="https://create.gamma.io/collection/{slug}" target="_blank">
