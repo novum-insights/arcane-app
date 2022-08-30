@@ -6,7 +6,7 @@
 	const account = getAccount();
 
 	const links = [
-		['', `${base}`],
+		// ['Home', `${base}`],
 		['About', `${base}/about`],
 		['Explore', `${base}/explore`],
 		['Minting Now', `${base}/minting-now`]
@@ -15,7 +15,7 @@
 	const price = $page.data.price;
 </script>
 
-<div class="flex flex-col w-64 h-100 py-8 border-r bg-gray-800 border-gray-600">
+<div class="flex flex-col w-96 h-100 py-8 border-r bg-gray-800 border-gray-600">
 	<a href="{base}/.">
 		<h2 class="text-3xl font-semibold text-center text-white uppercase">Arcane</h2>
 		<p class="text-xs text-center">Stacks portfolio tracker</p>
@@ -32,7 +32,7 @@
 				<a
 					class="flex items-center px-4 py-2 text-white"
 					href={link}
-					class:bg-sky-900={link === $page.url.pathname}
+					class:bg-sky-900={link === $page.url.pathname || $page.url.pathname.includes(link)}
 				>
 					<span class="mx-4 font-medium">{name}</span>
 				</a>

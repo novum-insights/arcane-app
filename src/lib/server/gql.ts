@@ -56,3 +56,57 @@ export const getFloorMultiple = async (contract_ids: string[]) => {
   return marketplace_list_events_active_floors
 
 }
+
+export const topCollectors = async (block_height: number) => {
+  const query = gql`query getTopCollectorsPaginated(
+    $where: stx_account_bool_exp = {}
+    $limit: Int = 10
+    $offset: Int = 0
+    $order_by: [stx_account_order_by!] = {
+      marketplace_ft_transfers_sender_aggregate: {
+        sum: { amount: desc_nulls_last }
+      }
+    }
+    $ft_sender_where: marketplace_ft_transfers_bool_exp = {}
+  ) {
+    stx_account(
+      limit: $limit
+      order_by: $order_by
+      where: $where
+      offset: $offset
+    ) {
+      address
+      marketplace_ft_transfers_sender_aggregate(where: $ft_sender_where) {
+        aggregate {
+          sum {
+            amount
+          }
+        }
+      }
+      gaia {
+        gaia_hub_address
+      }
+    }
+  }
+  `
+  const variables = {
+    "limit": 10,
+    "where": {
+      "marketplace_ft_transfers_sender": {
+        "block_height": {
+          "_gte": block_height - 100
+        }
+      }
+    },
+    "ft_sender_where": {
+      "block_height": {
+        "_gte": block_height - 100
+      }
+    }
+  }
+
+  const data = await request('https://gql.stxnft.com/', query, variables).then((data) => (data))
+  const { stx_account } = data
+  return stx_account
+
+}

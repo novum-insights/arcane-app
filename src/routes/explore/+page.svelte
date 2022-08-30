@@ -1,1 +1,2 @@
-explore page
+<script lang="ts">
+</script>

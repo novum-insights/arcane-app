@@ -76,3 +76,8 @@ export const tokenMap: any = {
     // 'SP': null,
     // 'APower': null,
 }
+
+export const block = async () => {
+    const { total } = await getAPI('https://api.stacks.org/extended/v1/block?limit=1')
+    return total
+}
