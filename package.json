@@ -1,6 +1,7 @@
 {
 	"name": "arcane",
 	"version": "0.0.1",
+	"license": "MIT",
 	"scripts": {
 		"dev": "vite dev",
 		"build": "vite build",
@@ -44,8 +45,5 @@
 		"micro-stacks": "^1.1.2",
 		"svelte-copy": "^1.2.4",
 		"svelte-kit-cookie-session": "^3.0.6"
-	},
-	"engines": {
-		"node": ">=16.0.0 <17.0.0"
 	}
 }
