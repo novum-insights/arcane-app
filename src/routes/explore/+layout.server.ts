@@ -9,7 +9,7 @@ export const load: Load = async () => {
 		{
 			link: 'top-collectors',
 			text: 'Top Collectors',
-			color: 'green',
+			color: '#0569a0',
 			icon: `<svg
 				xmlns="http://www.w3.org/2000/svg"
 				fill="none"
@@ -47,7 +47,7 @@ export const load: Load = async () => {
 		{
 			link: 'trending-collections',
 			text: 'Trending collections',
-			color: 'sky',
+			color: '#17803d',
 			icon: `<svg
 				xmlns="http://www.w3.org/2000/svg"
 				fill="none"
@@ -66,7 +66,7 @@ export const load: Load = async () => {
 		{
 			link: 'defi',
 			text: 'Defi/Market',
-			color: 'teal',
+			color: '#0e766e',
 			icon: `<svg
 				xmlns="http://www.w3.org/2000/svg"
 				fill="none"
