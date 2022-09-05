@@ -16,9 +16,9 @@
 </script>
 
 <div class="flex flex-col w-96 h-100 py-8 border-r bg-gray-800 border-gray-600">
-	<a href="{base}/.">
-		<h2 class="text-3xl font-semibold text-center text-white uppercase">Arcane</h2>
-		<p class="text-xs text-center">Stacks portfolio tracker</p>
+	<a href="{base}/." class="text-center mx-auto">
+		<!-- <h2 class="text-3xl font-semibold text-center text-white uppercase">Arcane</h2> -->
+		<img src="/arcane.png" alt="arcane logo" class="w-40 invert">
 	</a>
 	<div class="flex flex-col items-center mt-6 -mx-2">
 		<h4 class="mx-2 mt-2 font-medium">

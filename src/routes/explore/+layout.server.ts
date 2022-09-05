@@ -1,5 +1,4 @@
 import type { Load } from "@sveltejs/kit";
-
 import { block } from "$lib/client/api";
 
 export const load: Load = async () => {
