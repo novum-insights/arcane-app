@@ -5,11 +5,12 @@
 	import Stats from './Stats.svelte';
 
 	let address = $page.data.address;
-	let bns = $page.data.bns;
+	let bns = $page.data.bns[0];
 	const links = [
 		['NFT', `${base}/${address}/nft`],
 		['DeFi', `${base}/${address}/defi`]
 	];
+	console.log($page.data)
 </script>
 
 <div class="py-4">
