@@ -6,8 +6,8 @@ export const load: Load = async () => {
 
 	const links = [
 		{
-			link: 'top-collectors',
-			text: 'Top Collectors',
+			link: 'whale-watch',
+			text: 'Whale Watch',
 			color: '#0569a0',
 			icon: `<svg
 				xmlns="http://www.w3.org/2000/svg"

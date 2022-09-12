@@ -10,7 +10,6 @@
 		['NFT', `${base}/${address}/nft`],
 		['DeFi', `${base}/${address}/defi`]
 	];
-	console.log($page.data)
 </script>
 
 <div class="py-4">

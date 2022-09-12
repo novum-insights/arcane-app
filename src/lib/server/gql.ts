@@ -57,7 +57,7 @@ export const getFloorMultiple = async (contract_ids: string[]) => {
 
 }
 
-export const topCollectors = async (block_height: number) => {
+export const whaleWatch = async (block_height: number) => {
   const query = gql`query getTopCollectorsPaginated(
     $where: stx_account_bool_exp = {}
     $limit: Int = 10
